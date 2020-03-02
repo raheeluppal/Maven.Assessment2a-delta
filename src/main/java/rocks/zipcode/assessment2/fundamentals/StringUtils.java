@@ -13,8 +13,13 @@ public class StringUtils {
      */
     public static String padLeft(String stringToBePadded, int amountOfPadding) {
 
-        String result = StringUtils.padRight(stringToBePadded,amountOfPadding);
-        return result;    }
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < amountOfPadding; i++) {
+            sb.append(' ');
+        }
+
+        return sb.substring(stringToBePadded.length()) + stringToBePadded;
+    }
 
     /**
      * @param stringToBePadded - string value to be flushed left
@@ -22,8 +27,12 @@ public class StringUtils {
      * @return `stringToBePadded` flushed right by right-padding
      */
     public static String padRight(String stringToBePadded, int amountOfPadding) {
-       String result = StringUtils.padLeft(stringToBePadded,amountOfPadding);
-       return result;
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < amountOfPadding; i++) {
+            sb.append(' ');
+        }
+
+        return  stringToBePadded + sb.substring(stringToBePadded.length()) ;
     }
 
     /**
@@ -44,12 +53,12 @@ public class StringUtils {
         char[] chars = string.toCharArray();
 
         for (char c : chars) {
-            if(!Character.isLetter(c)) {
-                return false;
+            if(Character.isLetter(c)) {
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     /**
@@ -60,12 +69,12 @@ public class StringUtils {
         char[] chars = string.toCharArray();
 
         for (char c : chars) {
-            if(!Character.isDigit(c)) {
-                return false;
+            if(Character.isDigit(c)) {
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 
     /**
@@ -77,10 +86,10 @@ public class StringUtils {
 
         for (char c : chars) {
             if(!Character.isLetterOrDigit(c)) {
-                return false;
+                return true;
             }
         }
 
-        return true;
+        return false;
     }
 }

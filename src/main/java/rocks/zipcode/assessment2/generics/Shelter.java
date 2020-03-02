@@ -14,7 +14,7 @@ import java.util.List;
  * Shelter<Dog> dogHouse = new Shelter<Dog>();
  */
 public class Shelter<p> {
-    List<Ageable> shelterList;
+    ArrayList<Ageable> shelterList;
 
     public Shelter() {
         this.shelterList = new ArrayList<>();

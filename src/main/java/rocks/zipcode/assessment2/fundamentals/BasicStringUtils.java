@@ -38,7 +38,7 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-        return string.replaceAll("[charactersToRemove]","");
+        return string.replace(charactersToRemove,"");
     }
 
     /**
@@ -47,7 +47,7 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        String result = string.replaceAll("[charactersToRemove]","");
+        String result = string.replace("[charactersToRemove]","");
         StringBuilder sb = new StringBuilder(result);
         return sb.reverse().toString();
     }
