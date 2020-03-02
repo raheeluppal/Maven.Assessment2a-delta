@@ -48,6 +48,6 @@ public class Person {
 
     @Override
     public boolean equals(Object o) {
-        return (Boolean)null;
+        return true;
     }
 }
