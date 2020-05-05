@@ -53,12 +53,13 @@ public class StringUtils {
         char[] chars = string.toCharArray();
 
         for (char c : chars) {
-            if(Character.isLetter(c)) {
-                return true;
-            }
-        }
 
-        return false;
+            if(!Character.isSpaceChar(c) && !Character.isLetter(c)){
+                return false;
+            }
+            }
+
+        return true;
     }
 
     /**
@@ -69,12 +70,12 @@ public class StringUtils {
         char[] chars = string.toCharArray();
 
         for (char c : chars) {
-            if(Character.isDigit(c)) {
-                return true;
+            if(!Character.isDigit(c)) {
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 
     /**
@@ -85,11 +86,11 @@ public class StringUtils {
         char[] chars = string.toCharArray();
 
         for (char c : chars) {
-            if(!Character.isLetterOrDigit(c)) {
-                return true;
+            if(Character.isSpaceChar(c) || (Character.isLetterOrDigit(c))) {
+                return false;
             }
         }
 
-        return false;
+        return true;
     }
 }

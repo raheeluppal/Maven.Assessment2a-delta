@@ -9,6 +9,7 @@ public class Address {
     String city;
     String state;
     String zipcode;
+
     public Address() {
         this.addressLine1 = "";
         this.addressLine2 = "";
@@ -27,9 +28,9 @@ public class Address {
     public Address(String addressLine1, String addressLine2, String city, String state, String zipcode) {
         this.addressLine1 = addressLine1;
         this.addressLine2 = addressLine2;
-        this. city = city;
+        this.city = city;
         this.state = state;
-        this. zipcode = zipcode;
+        this.zipcode = zipcode;
     }
 
     public String getAddressLine1() {
@@ -73,7 +74,18 @@ public class Address {
     }
 
     @Override
+    public String toString() {
+        return "Address{" +
+                "addressLine1='" + addressLine1 + '\'' +
+                ", addressLine2='" + addressLine2 + '\'' +
+                ", city='" + city + '\'' +
+                ", state='" + state + '\'' +
+                ", zipcode='" + zipcode + '\'' +
+                '}';
+    }
+
+    @Override
     public boolean equals(Object o) {
-        return true;
+        return this.toString().equals(o.toString());
     }
 }

@@ -38,7 +38,23 @@ public class BasicStringUtils {
      * @return `string` with `charactersToRemove` removed
      */
     public static String removeCharacters(String string, String charactersToRemove) {
-        return string.replace(charactersToRemove,"");
+        StringBuilder result = new StringBuilder();
+        char[] charsToRemove = charactersToRemove.toCharArray();
+
+        for (int i = 0; i < string.length(); i++) {
+            Boolean charToBeAdded = true;
+
+            for (int j = 0; j < charactersToRemove.length(); j++) {
+                if (string.charAt(i) == charsToRemove[j]) {
+                    charToBeAdded = false;
+                }
+            }
+            if (charToBeAdded) {
+                result.append(string.charAt(i));
+
+            }
+        }
+            return result.toString();
     }
 
     /**
@@ -47,8 +63,8 @@ public class BasicStringUtils {
      * @return reverse of `string` with `charactersToRemove` removed
      */
     public static String removeCharactersThenReverse(String string, String charactersToRemove) {
-        String result = string.replace("[charactersToRemove]","");
-        StringBuilder sb = new StringBuilder(result);
-        return sb.reverse().toString();
+       String result = BasicStringUtils.removeCharacters(string, charactersToRemove);
+       StringBuilder sb = new StringBuilder(result);
+       return sb.reverse().toString();
     }
 }
